@@ -1,0 +1,10 @@
+steps:
+  - label: ":docker::ecr: Create Container and Push to ECR"
+    env:
+      ENVIRONMENT: dev
+      AWS_DEFAULT_REGION: us-east-1
+      BUILDKITE_CLEAN_CHECKOUT: true
+    agents:
+      queue: "sorted-dev"
+    command: |-
+      ./package_ecr.sh
