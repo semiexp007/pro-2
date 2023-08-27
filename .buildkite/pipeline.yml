@@ -5,6 +5,6 @@ steps:
       AWS_DEFAULT_REGION: us-east-1
       BUILDKITE_CLEAN_CHECKOUT: true
     agents:
-      queue: "sorted-dev"
+      queue: "default"
     command: |-
       ./package_ecr.sh

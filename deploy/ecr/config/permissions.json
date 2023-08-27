@@ -1,0 +1,18 @@
+{
+    "Version": "2008-10-17",
+    "Statement": [
+      {
+        "Sid": "allow_other_accounts",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": ["arn:aws:iam::950913712850:user/deployer-Op", "arn:aws:iam::950913712850:user/deployer-Op"]
+        },
+        "Action": [
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:BatchGetImage",
+          "ecr:GetDownloadUrlForLayer"
+        ]
+      }
+    ]
+  }
+  
