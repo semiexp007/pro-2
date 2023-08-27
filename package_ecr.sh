@@ -28,12 +28,12 @@ wait
 # Publish
 sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
   ( echo "Login expired. Relogging in..." && \
-    eval $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION}) && \
+    eval $( aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 950913712850.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
+) && \
     sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} )
 
 
-    aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 950913712850.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
-
+   
 
 # Pass REPOSITORY_URL to downstream buildkite steps
 buildkite-agent meta-data set "REPOSITORY_URL" "${REPOSITORY_URL}"
