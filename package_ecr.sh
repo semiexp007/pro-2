@@ -23,6 +23,7 @@ echo -e "--- Building Docker Image :docker: and pushing to ECR"
 
 # Build
 sudo docker build -t ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} .
+wait
 
 # Publish
 sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
