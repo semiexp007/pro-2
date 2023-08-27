@@ -22,10 +22,10 @@ cd ../..
 echo -e "--- Building Docker Image :docker: and pushing to ECR"
 
 # Build
-docker build -t ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} .
+sudo docker build -t ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} .
 
 # Publish
-docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
+sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
   ( echo "Login expired. Relogging in..." && \
     eval $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION}) && \
     docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} )
