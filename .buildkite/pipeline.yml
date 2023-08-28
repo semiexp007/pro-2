@@ -7,4 +7,5 @@ steps:
     agents:
       queue: "default"
     command: |-
+       chmod +x /path/to/script.sh
       ./package_ecr.sh
