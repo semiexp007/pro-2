@@ -26,10 +26,10 @@ sudo docker build -t ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} .
 wait
 
 # Publish
-docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
+sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} || \
   ( echo "Login expired. Relogging in..." && \
-    eval $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION}) && \
-    docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} )
+    eval $(sudo aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION}) && \
+    sudo docker push ${REPOSITORY_URL}:${BUILDKITE_BUILD_NUMBER} )
 
    
 
