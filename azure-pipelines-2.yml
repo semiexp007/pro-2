@@ -7,9 +7,9 @@ trigger:
 - master
 
 pool: 
-   name: test-agent
+   name: Azure Pipelines
    demands:
-    - agent.name -equals user-Latitude-7480
+    - agent.name -equals Hosted Agent
   
 steps:
 - script: echo Hello, world!
